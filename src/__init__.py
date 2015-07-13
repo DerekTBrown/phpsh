@@ -695,7 +695,7 @@ Type 'e' to open emacs or 'V' to open vim to %s: %s" %
                "remote_port=%(port)s remote_enable=1" % {"port": self.dbgp_port}
 
         self.p = Popen(cmd, env=env, stdin=PIPE, stdout=PIPE, stderr=PIPE,
-                       preexec_fn=os.setsid)
+                       preexec_fn=os.setsid, Shell=True)
 
         if self.with_xdebug:
             # disable remote debugging for other instances of php started by
